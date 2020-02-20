@@ -42,7 +42,12 @@ Building on Linux requires the following:
 To build CURRENNT execute the following commands:
 #> cd currennt
 #> mkdir build && cd build
+
+WITH CUDA<10 (have not been tested for all versions)
 #> cmake ..
+OR since CUDA_cublas_device_LIBRARY is deprecated with CUDA>=10.0 - provide `CUDA_cublas_device_LIBRARY` pointing to libcublas.so in your cuda build, e.g.
+#> cmake -DCUDA_cublas_device_LIBRARY=/usr/local/cuda/targets/x86_64-linux/lib/libcublas.so ..
+
 #> make
 
 This produces the executable file 'currennt'.
